@@ -1,5 +1,6 @@
 package com.microservice.event.domain;
 
+import com.microservice.event.dtos.EventRequestDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,4 +22,11 @@ public class Event {
     private String title;
     private String description;
 
+    public Event(EventRequestDTO eventRequestDTO) {
+        this.date = eventRequestDTO.date();
+        this.maxParticipants = eventRequestDTO.maxParticipants();
+        this.registeredParticipants = eventRequestDTO.registeredParticipants();
+        this.title = eventRequestDTO.title();
+        this.description = eventRequestDTO.description();
+    }
 }

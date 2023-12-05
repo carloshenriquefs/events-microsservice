@@ -15,7 +15,7 @@ import java.util.Optional;
 public interface EventRepository extends JpaRepository<Event, String> {
 
     @Query(value = "SELECT * FROM events e WHERE PARSE(e.date AS TIMESTAMP) > :currentDate", nativeQuery = true)
-    List<Event> findUpComingEvents(@Param("currentDate") LocalDateTime currentDate);
+    List<Event> findUpcomingEvents(@Param("currentDate") LocalDateTime currentDate);
 
     @NonNull
     Optional<Event> findById(@NonNull String id);
